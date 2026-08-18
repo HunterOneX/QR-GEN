@@ -1,0 +1,1 @@
+{"root":["./src/app.tsx","./src/main.tsx","./src/components/datalist.tsx","./src/components/labelpreview.tsx","./src/components/logpanel.tsx","./src/components/outputpanel.tsx","./src/components/settingspanel.tsx","./src/components/toast.tsx","./src/lib/csv.ts","./src/lib/pdf.ts","./src/lib/print.ts","./src/lib/qr.ts","./src/lib/types.ts","./src/lib/zpl.ts"],"version":"5.9.3"}
