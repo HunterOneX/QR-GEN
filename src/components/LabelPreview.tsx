@@ -70,10 +70,6 @@ export default function LabelPreview({ config, value, index, total }: Props) {
         className="label-canvas"
         style={{ width: layout.width, height: layout.height, position: "relative" }}
       >
-        <div
-          className="label-border"
-          style={{ width: layout.width, height: layout.height }}
-        />
         {!config.hideQr &&
           qrImages.map((url, i) => (
             <img

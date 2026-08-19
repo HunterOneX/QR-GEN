@@ -47,7 +47,6 @@ export async function buildPrintHtml(
           )}</div>`;
       labels.push(
         `<div class="label" style="width:${layout.width}mm;height:${layout.height}mm;">` +
-          `<div class="border" style="width:${layout.width}mm;height:${layout.height}mm;"></div>` +
           qrs +
           txt +
           `</div>`
@@ -57,7 +56,7 @@ export async function buildPrintHtml(
 
   return `<!doctype html><html><head><meta charset="utf-8"><title>Labels</title>` +
     `<style>@page{margin:0}body{margin:0}.label{position:relative;page-break-after:always;break-after:page}` +
-    `.label:last-child{page-break-after:auto}.border{position:absolute;border:1px solid #000;box-sizing:border-box}` +
+    `.label:last-child{page-break-after:auto}` +
     `.txt{position:absolute;transform:translateY(-50%);white-space:nowrap;font-family:Arial;color:#000}` +
     `img{image-rendering:pixelated}</style></head><body>${labels.join("")}</body></html>`;
 }

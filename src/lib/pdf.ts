@@ -13,8 +13,7 @@ async function drawLabel(
   doc: jsPDF,
   config: LabelConfig,
   data: string,
-  offsetY: number,
-  drawBorder: boolean
+  offsetY: number
 ): Promise<void> {
   const measure = (text: string, fontPx: number): TextMetricsLike => {
     doc.setFont("helvetica", "normal");
@@ -27,12 +26,6 @@ async function drawLabel(
   };
 
   const layout = computeLayout(config, data, 1, measure);
-
-  if (drawBorder) {
-    doc.setDrawColor(0);
-    doc.setLineWidth(0.2);
-    doc.rect(0, offsetY, layout.width, layout.height);
-  }
 
   const qrPx = Math.max(40, Math.round(layout.qrSize * 10));
   const qrUrl = await qrToDataUrl(data, qrPx, config.errorCorrection);
@@ -68,7 +61,7 @@ export async function exportLabelsPdf(
     for (const data of dataList) {
       for (let q = 0; q < options.qty; q++) {
         if (!first) doc.addPage([config.widthMm, config.heightMm], "portrait");
-        await drawLabel(doc, config, data, 0, true);
+        await drawLabel(doc, config, data, 0);
         count++;
         onProgress?.(count, total);
         first = false;
@@ -83,7 +76,7 @@ export async function exportLabelsPdf(
     let idx = 0;
     for (const data of dataList) {
       for (let q = 0; q < options.qty; q++) {
-        await drawLabel(doc, config, data, idx * config.heightMm, idx === 0);
+        await drawLabel(doc, config, data, idx * config.heightMm);
         idx++;
         onProgress?.(idx, total);
       }

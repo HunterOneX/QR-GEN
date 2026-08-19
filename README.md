@@ -20,6 +20,7 @@ npm install
 npm run dev      # start dev server (http://localhost:5173)
 npm run build    # production build into dist/
 npm run preview  # preview the production build
+cloudflared tunnel --url http://localhost:5173 #Web_server
 ```
 
 ## Usage

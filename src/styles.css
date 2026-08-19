@@ -423,13 +423,6 @@ body {
   box-shadow: 0 10px 30px rgba(16, 24, 40, 0.16);
   border-radius: 2px;
 }
-.label-border {
-  position: absolute;
-  inset: 0;
-  border: 1.5px solid #111;
-  border-radius: 2px;
-  pointer-events: none;
-}
 .label-qr {
   position: absolute;
   image-rendering: pixelated;
